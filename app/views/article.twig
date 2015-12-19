@@ -1,0 +1,15 @@
+{{include('partials/header.twig')}}
+
+<div class="media">
+  <div class="media-left media-top">
+    <a href="#">
+      <img class="media-object" src="{{article.picture}}" alt="{{article.slug}}" style="width:100px">
+    </a>
+  </div>
+  <div class="media-body">
+    <h4 class="media-heading">{{article.title}}</h4>
+    {{article.content}}
+  </div>
+</div>
+
+{{include('partials/footer.twig')}}

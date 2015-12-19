@@ -1,0 +1,28 @@
+{{include('partials/header.twig')}}
+<div class="col-lg-12">
+{{ form_start(form,{attr:{class:'navbar-form navbar-left'}}) }}
+	{{ form_errors(form) }} 
+	    <div class="form-group">
+	        {{ form_widget(form.word,{attr:{class:'form-control', placeholder:'Recherche'}}) }}
+	        {{ form_errors(form.word) }}
+	    </div>
+	        {{ form_widget(form.submit, {attr: {class:'btn btn-default'}}) }}
+	{{ form_end(form) }}
+</div>
+
+{% for article in result %}
+  <div class="col-sm-4 col-md-3">
+    <div class="thumbnail">
+      <div class="encompass">
+      	<img src="{{article.picture}}" alt="chat">
+      </div>
+      <div class="caption">
+        <h3>{{article.title}}</h3>
+        <p>{{article.preview}}</p>
+        <p><a href="{{url('article',{slug:article.slug})}}" class="btn btn-primary" role="button">Lire la suite</a>
+      </div>
+    </div>
+  </div>
+{% endfor %}
+
+{{include('partials/footer.twig')}}
